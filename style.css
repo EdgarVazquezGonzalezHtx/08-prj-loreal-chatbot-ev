@@ -8,103 +8,170 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: #1f1f1f;
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 30%),
+    linear-gradient(to bottom, #f8f5f0, #f3efe8);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  padding: 40px 20px;
 }
 
 .page-wrapper {
-  width: 90%;
-  max-width: 900px;
+  width: 100%;
+  max-width: 920px;
 }
 
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10px;
+  margin-bottom: 28px;
+}
+
+.banner-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
 }
 
 .site-title {
-  font-size: 22px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 34px;
   font-weight: 500;
-  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  color: #1c1c1c;
+  margin-bottom: 8px;
 }
 
-/* chat window */
+.site-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a7a5c;
+}
+
+/* chat section */
 .chatbox {
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 .chat-window {
-  height: 360px;
-  border: 1px solid #000;
-  padding: 20px;
-  font-size: 18px;
-  line-height: 1.5;
+  height: 420px;
+  padding: 28px;
+  font-size: 17px;
+  line-height: 1.7;
   overflow-y: auto;
-  background: #fafafa;
   white-space: pre-line;
+
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(180, 160, 120, 0.25);
+  border-radius: 24px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
 
 /* messages */
 .msg {
-  margin-bottom: 14px;
-  line-height: 1.5;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  max-width: 85%;
+  padding: 14px 18px;
+  border-radius: 18px;
 }
 
 .msg.user {
-  color: #000;
+  margin-left: auto;
+  background: linear-gradient(135deg, #1f1f1f, #343434);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .msg.ai {
-  color: #666666;
+  background: #f8f4ee;
+  color: #4a4033;
+  border: 1px solid rgba(180, 160, 120, 0.18);
 }
 
 /* input row */
 .chat-form {
   display: flex;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 14px;
+  margin-top: 18px;
+  align-items: center;
 }
 
 .chat-form input {
   flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  font-size: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(180, 160, 120, 0.35);
+  border-radius: 999px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #2b2b2b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.chat-form input::placeholder {
+  color: #8b8174;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  border-color: #c7a85a;
+  box-shadow: 0 0 0 4px rgba(199, 168, 90, 0.15);
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
   color: #fff;
   border: none;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-.chat-form button .material-icons {
-  font-size: 24px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
 }
 
 .chat-form button:hover {
-  background: #666666;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(199, 168, 90, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.chat-form button .material-icons {
+  font-size: 22px;
+}
+
+/* scrollbar */
+.chat-window::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background: rgba(160, 140, 100, 0.35);
+  border-radius: 999px;
 }
 
 /* visually hidden */
@@ -122,22 +189,108 @@ body {
 
 /* footer */
 .site-footer {
-  margin: 60px 0 40px;
+  margin: 50px 0 20px;
   text-align: center;
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: #7d7468;
+  letter-spacing: 0.3px;
 }
 
 .site-footer nav {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .site-footer a {
-  margin: 0 8px;
-  color: #000;
+  margin: 0 10px;
+  color: #3a3127;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: #b08a3c;
+}
+
+.lux-divider {
+  width: 180px;
+  height: 2px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.15) 0%,
+    rgba(212, 175, 55, 0.75) 50%,
+    rgba(212, 175, 55, 0.15) 100%
+  );
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.18);
+}
+
+.lux-divider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 248, 220, 0.95),
+    transparent
+  );
+  animation: shimmerLine 2.8s ease-in-out infinite;
+}
+
+@keyframes shimmerLine {
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  50% {
+    left: 100%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+.chat-window {
+  height: 420px;
+  padding: 28px;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-y: auto;
+  white-space: pre-line;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  position: relative;
+}
+
+.chat-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0.05)
+  );
 }
