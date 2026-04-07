@@ -261,8 +261,8 @@ body {
   }
 }
 .chat-window {
-  height: 420px;
-  padding: 28px;
+  height: 300px;
+  padding: 24px;
   font-size: 17px;
   line-height: 1.7;
   overflow-y: auto;
