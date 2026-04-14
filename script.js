@@ -83,6 +83,7 @@ chatForm.addEventListener("submit", async (e) => {
   }
 });
 
+// Animation to show "thinking" indicator while waiting for response
 function showThinking() {
   const chatWindow = document.getElementById("chatWindow");
 
@@ -99,6 +100,7 @@ function showThinking() {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
+// Removes the "thinking" indicator once a response is received
 function removeThinking() {
   const thinking = document.getElementById("thinking-indicator");
   if (thinking) thinking.remove();

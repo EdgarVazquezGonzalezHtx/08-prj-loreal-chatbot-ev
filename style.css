@@ -211,6 +211,7 @@ body {
   color: #b08a3c;
 }
 
+/* Divider after the logo */
 .lux-divider {
   width: 180px;
   height: 2px;
@@ -260,6 +261,8 @@ body {
     opacity: 0;
   }
 }
+
+/* Chat window styling */
 .chat-window {
   height: 300px;
   padding: 24px;
@@ -321,6 +324,7 @@ body {
   animation-delay: 0.4s;
 }
 
+/* Bounce animation for thinking indicator */
 @keyframes bounce {
   0%, 80%, 100% {
     transform: translateY(0);
