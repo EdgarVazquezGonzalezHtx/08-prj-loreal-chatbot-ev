@@ -1,6 +1,7 @@
 # Project 8: L'Oréal Chatbot
 
-L’Oréal is exploring the power of AI, and your job is to showcase what's possible. Your task is to build a chatbot that helps users discover and understand L’Oréal’s extensive range of products—makeup, skincare, haircare, and fragrances—as well as provide personalized routines and recommendations.
+A sleek, AI-powered skincare assistant that provides personalized routines and product recommendations using L’Oréal brands only. 
+Built with a simple front-end interface and powered by an openAI API through a Cloudflare Worker.
 
 ---
 
@@ -36,3 +37,22 @@ L’Oréal is exploring the power of AI, and your job is to showcase what's poss
 * Chat history UI (instead of replacing messages)
 * User skin-type selection
 * Saved routines
+
+---
+
+## What I Learned
+
+* How to integrate a frontend application with an AI backend using API calls
+* Structuring and maintaining conversation history for contextual responses
+* Designing effective system prompts to control tone, behavior, and output quality
+* Improving user experience through UI polish, animations, and responsiveness
+* Debugging asynchronous JavaScript (fetch requests, JSON parsing, error handling)
+* Connecting a frontend to a deployed backend service using Cloudflare Workers
+
+---
+
+## Challenges Solved
+
+* UI breaking due to DOM selection bugs: Resolved mismatched element IDs (chatWindow vs chat-window)
+* Asynchronous timing issues: Ensured the “thinking” animation appears and disappears at the correct time
+* Frontend ↔ backend debugging: Used console logging and  inspection tool to trace issues 
