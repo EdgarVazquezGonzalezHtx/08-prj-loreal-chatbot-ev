@@ -5,7 +5,7 @@ const chatWindow = document.getElementById("chatWindow");
 const workerUrl = "https://open-ai-worker.edgar-vazquezgonzalez.workers.dev/";
 
 // Set initial message
-chatWindow.textContent = "👋 Hello! How can I help you today?";
+chatWindow.textContent = "👋 Hello! How can I help you today?\n";
 
 // Array to keep track of conversation history
 let messages = [
@@ -38,7 +38,7 @@ chatForm.addEventListener("submit", async (e) => {
   const inputText = userInput.value.trim();
   if (!inputText) return;
 
-  chatWindow.textContent = "Thinking...";
+  showThinking();
 
   // Add user message to conversation history
   messages.push({ role: "user", content: inputText });
@@ -71,6 +71,9 @@ chatForm.addEventListener("submit", async (e) => {
     // Save assistant reply
     messages.push({ role: "assistant", content: replyText });
 
+    // Remove thinking indicator
+    removeThinking();
+
     // Display response
     chatWindow.textContent = replyText;
   } catch (error) {
@@ -79,3 +82,24 @@ chatForm.addEventListener("submit", async (e) => {
     console.error("Fetch error:", error);
   }
 });
+
+function showThinking() {
+  const chatWindow = document.getElementById("chatWindow");
+
+  const thinking = document.createElement("div");
+  thinking.className = "message bot thinking";
+  thinking.id = "thinking-indicator";
+  thinking.innerHTML = `
+    <span></span>
+    <span></span>
+    <span></span>
+  `;
+
+  chatWindow.appendChild(thinking);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function removeThinking() {
+  const thinking = document.getElementById("thinking-indicator");
+  if (thinking) thinking.remove();
+}
